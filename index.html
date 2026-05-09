@@ -4,246 +4,1062 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Thanapon Aungsakul - DevOps & Cloud Engineer Intern</title>
-    <meta name="description" content="Resume of Thanapon Aungsakul, DevOps / Cloud Engineer Intern.">
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="style.css">
-    <!-- Font Awesome for icons -->
+    <title>Thanapon Aungsakul — DevOps & Cloud Engineer</title>
+    <link
+        href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;1,9..40,300&display=swap"
+        rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        :root {
+            --ink: #1a1a2e;
+            --ink-soft: #3d3d5c;
+            --ink-muted: #7a7a9d;
+            --page: #f5f3ef;
+            --page-warm: #ede9e1;
+            --page-panel: #ffffff;
+            --accent: #c0392b;
+            --accent-light: #e8d5d3;
+            --accent2: #2c6e8a;
+            --accent2-light: #d0e8f0;
+            --gold: #b8860b;
+            --gold-light: #f5ecd0;
+            --divider: #d9d5ce;
+            --shadow-soft: 0 2px 16px rgba(26, 26, 46, 0.07);
+            --shadow-card: 0 4px 24px rgba(26, 26, 46, 0.10);
+            --radius: 4px;
+        }
+
+        *,
+        *::before,
+        *::after {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'DM Sans', sans-serif;
+            background-color: var(--page);
+            color: var(--ink);
+            line-height: 1.65;
+            min-height: 100vh;
+        }
+
+        /* ── NOISE TEXTURE OVERLAY ── */
+        body::before {
+            content: '';
+            position: fixed;
+            inset: 0;
+            background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.75' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.03'/%3E%3C/svg%3E");
+            pointer-events: none;
+            z-index: 0;
+        }
+
+        /* ── LAYOUT ── */
+        .page-wrap {
+            position: relative;
+            z-index: 1;
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 3rem 2rem 4rem;
+        }
+
+        /* ── HEADER ── */
+        .resume-header {
+            display: grid;
+            grid-template-columns: 1fr auto;
+            gap: 2rem;
+            align-items: end;
+            padding-bottom: 2.5rem;
+            border-bottom: 2px solid var(--ink);
+            margin-bottom: 3rem;
+            animation: headerReveal 0.9s cubic-bezier(.22, .68, 0, 1.2) both;
+        }
+
+        @keyframes headerReveal {
+            from {
+                opacity: 0;
+                transform: translateY(-20px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .header-left {}
+
+        .eyebrow {
+            font-size: 0.75rem;
+            font-weight: 500;
+            letter-spacing: 0.18em;
+            text-transform: uppercase;
+            color: var(--accent);
+            margin-bottom: 0.4rem;
+        }
+
+        .name {
+            font-family: 'DM Serif Display', serif;
+            font-size: clamp(2.8rem, 6vw, 4.2rem);
+            line-height: 1.05;
+            color: var(--ink);
+            letter-spacing: -0.02em;
+        }
+
+        .name-th {
+            font-family: 'DM Serif Display', serif;
+            font-style: italic;
+            font-size: 1.1rem;
+            color: var(--ink-muted);
+            margin-top: 0.3rem;
+            display: block;
+        }
+
+        .header-right {
+            text-align: right;
+        }
+
+        .role-badge {
+            display: inline-block;
+            font-size: 0.78rem;
+            font-weight: 600;
+            letter-spacing: 0.1em;
+            text-transform: uppercase;
+            color: var(--page-panel);
+            background: var(--ink);
+            padding: 0.35rem 0.85rem;
+            border-radius: 2px;
+            margin-bottom: 1rem;
+        }
+
+        .contact-list {
+            list-style: none;
+            display: flex;
+            flex-direction: column;
+            gap: 0.35rem;
+            align-items: flex-end;
+        }
+
+        .contact-list a {
+            font-size: 0.85rem;
+            color: var(--ink-soft);
+            text-decoration: none;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.45rem;
+            transition: color 0.2s;
+        }
+
+        .contact-list a:hover {
+            color: var(--accent);
+        }
+
+        .contact-list i {
+            color: var(--accent);
+            font-size: 0.75rem;
+            width: 14px;
+            text-align: center;
+        }
+
+        /* ── BODY COLUMNS ── */
+        .body-grid {
+            display: grid;
+            grid-template-columns: 2fr 1fr;
+            gap: 3rem;
+        }
+
+        /* ── SECTION ── */
+        .section {
+            margin-bottom: 2.8rem;
+            animation: fadeUp 0.7s ease both;
+        }
+
+        .section:nth-child(1) {
+            animation-delay: 0.1s;
+        }
+
+        .section:nth-child(2) {
+            animation-delay: 0.2s;
+        }
+
+        .section:nth-child(3) {
+            animation-delay: 0.3s;
+        }
+
+        .section:nth-child(4) {
+            animation-delay: 0.4s;
+        }
+
+        @keyframes fadeUp {
+            from {
+                opacity: 0;
+                transform: translateY(14px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .section-label {
+            font-size: 0.68rem;
+            font-weight: 600;
+            letter-spacing: 0.2em;
+            text-transform: uppercase;
+            color: var(--accent);
+            display: flex;
+            align-items: center;
+            gap: 0.6rem;
+            margin-bottom: 1.2rem;
+        }
+
+        .section-label::after {
+            content: '';
+            flex: 1;
+            height: 1px;
+            background: var(--divider);
+        }
+
+        /* ── SUMMARY ── */
+        .summary-text {
+            font-size: 0.975rem;
+            color: var(--ink-soft);
+            line-height: 1.8;
+            font-weight: 300;
+            border-left: 3px solid var(--accent);
+            padding-left: 1.2rem;
+        }
+
+        /* ── EXPERIENCE ITEM ── */
+        .exp-item {
+            position: relative;
+            padding-left: 1.2rem;
+            margin-bottom: 2rem;
+        }
+
+        .exp-item::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 6px;
+            width: 7px;
+            height: 7px;
+            border-radius: 50%;
+            background: var(--accent);
+        }
+
+        .exp-item::after {
+            content: '';
+            position: absolute;
+            left: 3px;
+            top: 16px;
+            bottom: -12px;
+            width: 1px;
+            background: var(--divider);
+        }
+
+        .exp-item:last-child::after {
+            display: none;
+        }
+
+        .exp-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            gap: 1rem;
+            margin-bottom: 0.15rem;
+        }
+
+        .exp-title {
+            font-size: 0.975rem;
+            font-weight: 600;
+            color: var(--ink);
+        }
+
+        .exp-date {
+            font-size: 0.75rem;
+            font-weight: 500;
+            color: var(--page-panel);
+            background: var(--accent2);
+            padding: 0.15rem 0.55rem;
+            border-radius: 2px;
+            white-space: nowrap;
+            flex-shrink: 0;
+        }
+
+        .exp-org {
+            font-size: 0.82rem;
+            color: var(--accent2);
+            font-weight: 500;
+            margin-bottom: 0.6rem;
+        }
+
+        .exp-list {
+            list-style: none;
+            display: flex;
+            flex-direction: column;
+            gap: 0.35rem;
+        }
+
+        .exp-list li {
+            font-size: 0.845rem;
+            color: var(--ink-soft);
+            padding-left: 1.1rem;
+            position: relative;
+            line-height: 1.6;
+        }
+
+        .exp-list li::before {
+            content: '→';
+            position: absolute;
+            left: 0;
+            color: var(--accent);
+            font-size: 0.75rem;
+            top: 2px;
+        }
+
+        /* ── PROJECT ITEM ── */
+        .project-item {
+            background: var(--page-panel);
+            border: 1px solid var(--divider);
+            border-radius: 3px;
+            padding: 1.1rem 1.2rem;
+            margin-bottom: 1rem;
+            box-shadow: var(--shadow-soft);
+            transition: box-shadow 0.25s, transform 0.25s, border-color 0.25s;
+        }
+
+        .project-item:hover {
+            box-shadow: var(--shadow-card);
+            transform: translateY(-2px);
+            border-color: var(--accent2);
+        }
+
+        .project-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 0.3rem;
+        }
+
+        .project-title {
+            font-size: 0.95rem;
+            font-weight: 600;
+            color: var(--ink);
+        }
+
+        .project-org {
+            font-size: 0.78rem;
+            color: var(--accent2);
+            font-weight: 500;
+            margin-bottom: 0.6rem;
+        }
+
+        .repo-link {
+            font-size: 0.75rem;
+            font-weight: 500;
+            color: var(--ink-muted);
+            text-decoration: none;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.3rem;
+            border: 1px solid var(--divider);
+            padding: 0.2rem 0.55rem;
+            border-radius: 2px;
+            transition: all 0.2s;
+        }
+
+        .repo-link:hover {
+            color: var(--accent);
+            border-color: var(--accent);
+        }
+
+        /* ── SKILLS SIDEBAR ── */
+        .skill-block {
+            margin-bottom: 1.4rem;
+        }
+
+        .skill-block-title {
+            font-size: 0.75rem;
+            font-weight: 600;
+            color: var(--ink);
+            margin-bottom: 0.5rem;
+            text-transform: uppercase;
+            letter-spacing: 0.08em;
+        }
+
+        .tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.35rem;
+        }
+
+        .tag {
+            font-size: 0.75rem;
+            font-weight: 500;
+            padding: 0.25rem 0.65rem;
+            border-radius: 2px;
+            transition: all 0.2s;
+        }
+
+        .tag-default {
+            background: var(--page-warm);
+            color: var(--ink-soft);
+            border: 1px solid var(--divider);
+        }
+
+        .tag-default:hover {
+            background: var(--ink);
+            color: var(--page);
+        }
+
+        .tag-accent {
+            background: var(--accent-light);
+            color: var(--accent);
+            border: 1px solid rgba(192, 57, 43, 0.2);
+        }
+
+        .tag-blue {
+            background: var(--accent2-light);
+            color: var(--accent2);
+            border: 1px solid rgba(44, 110, 138, 0.2);
+        }
+
+        .skill-desc-text {
+            font-size: 0.8rem;
+            color: var(--ink-muted);
+            line-height: 1.65;
+        }
+
+        /* ── EDUCATION ── */
+        .edu-block {
+            background: var(--ink);
+            color: var(--page);
+            padding: 1.2rem 1.4rem;
+            border-radius: 3px;
+            margin-bottom: 1rem;
+        }
+
+        .edu-degree {
+            font-size: 0.9rem;
+            font-weight: 600;
+            color: var(--page);
+            margin-bottom: 0.25rem;
+        }
+
+        .edu-school {
+            font-size: 0.8rem;
+            color: rgba(245, 243, 239, 0.65);
+            margin-bottom: 0.5rem;
+        }
+
+        .edu-gpa {
+            font-family: 'DM Serif Display', serif;
+            font-size: 1.5rem;
+            color: var(--gold);
+        }
+
+        .edu-gpa span {
+            font-family: 'DM Sans', sans-serif;
+            font-size: 0.75rem;
+            color: rgba(245, 243, 239, 0.55);
+            font-weight: 400;
+        }
+
+        .edu-date {
+            font-size: 0.72rem;
+            color: rgba(245, 243, 239, 0.45);
+            margin-top: 0.3rem;
+        }
+
+        /* ── CERTS ── */
+        .cert-item {
+            display: flex;
+            gap: 0.75rem;
+            align-items: flex-start;
+            margin-bottom: 0.7rem;
+        }
+
+        .cert-icon {
+            flex-shrink: 0;
+            width: 28px;
+            height: 28px;
+            border-radius: 2px;
+            background: var(--gold-light);
+            color: var(--gold);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 0.7rem;
+        }
+
+        .cert-text {
+            font-size: 0.8rem;
+            color: var(--ink-soft);
+            line-height: 1.5;
+        }
+
+        /* ── LANGUAGES ── */
+        .lang-row {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0.5rem 0;
+            border-bottom: 1px solid var(--divider);
+        }
+
+        .lang-row:last-child {
+            border-bottom: none;
+        }
+
+        .lang-name {
+            font-size: 0.85rem;
+            font-weight: 500;
+            color: var(--ink);
+        }
+
+        .lang-bar {
+            display: flex;
+            gap: 3px;
+        }
+
+        .lang-dot {
+            width: 10px;
+            height: 10px;
+            border-radius: 50%;
+            background: var(--divider);
+        }
+
+        .lang-dot.filled {
+            background: var(--accent);
+        }
+
+        /* ── SOFT SKILLS ── */
+        .soft-item {
+            display: flex;
+            gap: 0.8rem;
+            align-items: flex-start;
+            margin-bottom: 0.9rem;
+        }
+
+        .soft-num {
+            font-family: 'DM Serif Display', serif;
+            font-size: 1.4rem;
+            color: var(--accent-light);
+            line-height: 1;
+            font-style: italic;
+            flex-shrink: 0;
+            width: 28px;
+        }
+
+        .soft-title {
+            font-size: 0.82rem;
+            font-weight: 600;
+            color: var(--ink);
+            margin-bottom: 0.15rem;
+        }
+
+        .soft-desc {
+            font-size: 0.78rem;
+            color: var(--ink-muted);
+            line-height: 1.55;
+        }
+
+        /* ── FULL WIDTH SECTIONS ── */
+        .full-width-section {
+            margin-top: 0.5rem;
+            animation: fadeUp 0.7s ease 0.5s both;
+        }
+
+        .skills-masonry {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+            gap: 1rem;
+        }
+
+        .skill-card {
+            background: var(--page-panel);
+            border: 1px solid var(--divider);
+            border-radius: 3px;
+            padding: 1rem 1.1rem;
+            box-shadow: var(--shadow-soft);
+            transition: border-color 0.2s, box-shadow 0.2s;
+        }
+
+        .skill-card:hover {
+            border-color: var(--accent2);
+            box-shadow: var(--shadow-card);
+        }
+
+        .skill-card-title {
+            font-size: 0.72rem;
+            font-weight: 600;
+            letter-spacing: 0.1em;
+            text-transform: uppercase;
+            color: var(--accent2);
+            margin-bottom: 0.6rem;
+        }
+
+        /* ── ARCH GRID ── */
+        .arch-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(190px, 1fr));
+            gap: 1rem;
+        }
+
+        .arch-card {
+            background: var(--page-warm);
+            border-top: 3px solid var(--accent);
+            padding: 1rem 1.1rem;
+            border-radius: 0 0 3px 3px;
+            transition: transform 0.2s, box-shadow 0.2s;
+        }
+
+        .arch-card:hover {
+            transform: translateY(-2px);
+            box-shadow: var(--shadow-card);
+        }
+
+        .arch-card h4 {
+            font-size: 0.82rem;
+            font-weight: 600;
+            color: var(--ink);
+            margin-bottom: 0.4rem;
+        }
+
+        .arch-card p {
+            font-size: 0.78rem;
+            color: var(--ink-muted);
+            line-height: 1.6;
+        }
+
+        .arch-card em {
+            color: var(--accent);
+            font-style: normal;
+            font-weight: 600;
+        }
+
+        /* ── SUBTITLE ── */
+        .section-subtitle {
+            font-size: 0.83rem;
+            color: var(--ink-muted);
+            margin-bottom: 1.1rem;
+        }
+
+        .section-subtitle strong {
+            color: var(--ink);
+        }
+
+        /* ── STICKY NAV ── */
+        .sticky-nav {
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            background: rgba(245, 243, 239, 0.92);
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+            border-bottom: 1px solid var(--divider);
+            margin: 0 -2rem 2.5rem;
+            padding: 0 2rem;
+        }
+
+        .sticky-nav ul {
+            list-style: none;
+            display: flex;
+            gap: 0;
+            overflow-x: auto;
+            scrollbar-width: none;
+        }
+
+        .sticky-nav ul::-webkit-scrollbar {
+            display: none;
+        }
+
+        .sticky-nav li a {
+            display: flex;
+            align-items: center;
+            gap: 0.4rem;
+            padding: 0.75rem 1rem;
+            font-size: 0.75rem;
+            font-weight: 500;
+            letter-spacing: 0.06em;
+            text-transform: uppercase;
+            color: var(--ink-muted);
+            text-decoration: none;
+            white-space: nowrap;
+            border-bottom: 2px solid transparent;
+            transition: color 0.2s, border-color 0.2s;
+        }
+
+        .sticky-nav li a i {
+            font-size: 0.7rem;
+        }
+
+        .sticky-nav li a:hover,
+        .sticky-nav li a.active {
+            color: var(--accent);
+            border-bottom-color: var(--accent);
+        }
+
+        /* ── FOOTER ── */
+        footer {
+            margin-top: 3rem;
+            padding-top: 1.5rem;
+            border-top: 1px solid var(--divider);
+            text-align: center;
+            font-size: 0.75rem;
+            color: var(--ink-muted);
+            letter-spacing: 0.05em;
+        }
+
+        /* ── DIVIDER LINE ── */
+        .col-divider {
+            width: 1px;
+            background: var(--divider);
+            align-self: stretch;
+            display: none;
+            /* handled by grid gap */
+        }
+
+        /* ── RESPONSIVE ── */
+        @media (max-width: 820px) {
+            .body-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .resume-header {
+                grid-template-columns: 1fr;
+            }
+
+            .header-right {
+                text-align: left;
+            }
+
+            .contact-list {
+                align-items: flex-start;
+            }
+        }
+
+        @media (max-width: 500px) {
+            .page-wrap {
+                padding: 1.5rem 1rem 3rem;
+            }
+
+            .name {
+                font-size: 2.2rem;
+            }
+        }
+
+        /* ── HIGHLIGHT PILL ── */
+        .highlight-pill {
+            display: inline-block;
+            background: var(--gold-light);
+            color: var(--gold);
+            font-size: 0.78rem;
+            font-weight: 600;
+            padding: 0.2rem 0.7rem;
+            border-radius: 2px;
+            border: 1px solid rgba(184, 134, 11, 0.25);
+        }
+    </style>
 </head>
 
 <body>
-    <div class="background-animation"></div>
-    <div class="container">
+    <div class="page-wrap">
 
-        <!-- Header Section -->
-        <header class="glass-panel slide-in">
-            <div class="header-content">
-                <h1 class="name">Thanapon Aungsakul <span class="thai-name">(ธนพล อั๋งสกุล)</span></h1>
-                <h2 class="title"> DevOps Engineer / Cloud Engineer / Game Developer Intern</h2>
-                <div class="contact-info">
-                    <a href="mailto:thaaun05@gmail.com"><i class="fas fa-envelope"></i> thaaun05@gmail.com</a>
-                    <a href="https://github.com/fiat222" target="_blank"><i class="fab fa-github"></i>
-                        github.com/fiat222</a>
-                    <a href="https://www.linkedin.com/in/ธนพล-อั๋งสกุล-464b13364" target="_blank"><i
-                            class="fab fa-linkedin"></i> LinkedIn</a>
-                    <a href="https://github.com/fiat222/fiat222.username.io" target="_blank"><i
-                            class="fab fa-github"></i>
-                        git Resume</a>
-                </div>
+        <!-- ═══ STICKY NAV ═══ -->
+        <nav class="sticky-nav" aria-label="Jump to section">
+            <ul>
+                <li><a href="#sec-profile"><i class="fas fa-user"></i> Profile</a></li>
+                <li><a href="#sec-experience"><i class="fas fa-briefcase"></i> Experience</a></li>
+                <li><a href="#sec-projects"><i class="fas fa-code-branch"></i> Projects</a></li>
+                <li><a href="#sec-skills"><i class="fas fa-layer-group"></i> Skills</a></li>
+                <li><a href="#sec-education"><i class="fas fa-graduation-cap"></i> Education</a></li>
+                <li><a href="#sec-certifications"><i class="fas fa-certificate"></i> Certifications</a></li>
+                <li><a href="#sec-soft"><i class="fas fa-users"></i> Soft Skills</a></li>
+                <li><a href="#sec-game"><i class="fas fa-gamepad"></i> Game Dev</a></li>
+            </ul>
+        </nav>
+
+        <!-- ═══ HEADER ═══ -->
+        <header class="resume-header">
+            <div class="header-left">
+                <p class="eyebrow"><i class="fas fa-terminal"></i> &nbsp; Curriculum Vitae</p>
+                <h1 class="name">Thanapon<br>Aungsakul</h1>
+                <span class="name-th">ธนพล อั๋งสกุล</span>
+            </div>
+            <div class="header-right">
+                <span class="role-badge">DevOps · Cloud · Game Dev — Intern</span>
+                <ul class="contact-list">
+                    <li><a href="mailto:thaaun05@gmail.com"><i class="fas fa-envelope"></i>thaaun05@gmail.com</a></li>
+                    <li><a href="https://github.com/fiat222" target="_blank"><i
+                                class="fab fa-github"></i>github.com/fiat222</a></li>
+                    <li><a href="https://www.linkedin.com/in/ธนพล-อั๋งสกุล-464b13364" target="_blank"><i
+                                class="fab fa-linkedin"></i>LinkedIn Profile</a></li>
+                    <li><a href="https://github.com/fiat222/fiat222.username.io" target="_blank"><i
+                                class="fab fa-globe"></i>Online Resume</a></li>
+                </ul>
             </div>
         </header>
 
-        <!-- Summary -->
-        <section class="glass-panel fade-in delay-1">
-            <h3 class="section-title"><i class="fas fa-user"></i> Summary</h3>
-            <p>I am a Computer Engineering student with a strong interest in DevOps, Cloud Engineering, and Game
-                Development. Hands-on experience with Linux, Docker, Kubernetes, CI/CD, as well as Unity 3D, C#, and
+        <!-- ═══ SUMMARY ═══ -->
+        <section id="sec-profile" class="section" style="margin-bottom:2.5rem; animation-delay:0.05s;">
+            <div class="section-label"><i class="fas fa-user"></i> Profile</div>
+            <p class="summary-text">Computer Engineering student with hands-on experience in DevOps, Cloud Engineering,
+                and Game Development. Skilled in Linux, Docker, Kubernetes, CI/CD pipelines, Unity 3D, C#, and
                 Multiplayer Networking. Seeking an internship to apply real-world practices in production and game
                 server environments.</p>
         </section>
 
-        <div class="grid-layout">
-            <!-- Left Column -->
-            <div class="column">
+        <!-- ═══ BODY GRID ═══ -->
+        <div class="body-grid">
 
-                <!-- Technical Skills -->
-                <section class="glass-panel fade-in delay-2">
-                    <h3 class="section-title"><i class="fas fa-code"></i> Technical Skills</h3>
-                    <div class="skills-grid">
-                        <div class="skill-category">
-                            <h4>Languages</h4>
-                            <div class="tags">
-                                <span>Python</span><span>JavaScript</span><span>Node.js</span><span>SQL</span><span>Bash</span><span>C#</span>
-                            </div>
-                        </div>
-
-                        <div class="skill-category">
-                            <h4>DevOps & Infrastructure</h4>
-                            <div class="tags">
-                                <span>Docker</span><span>Nginx</span><span>GKE</span><span>Traefik</span><span>Docker
-                                    Compose</span><span>Vector</span>
-                            </div>
-                        </div>
-                        <div class="skill-category">
-                            <h4>Cloud Platform</h4>
-                            <p class="skill-desc">Google Cloud Platform (GKE, Cloud SQL, Artifact Registry, Load
-                                Balancer, VPC, Secret Manager, Pub/Sub, Cloud Build), AWS (EC2, S3 – basic)</p>
-                        </div>
-                        <div class="skill-category">
-                            <h4>Databases</h4>
-                            <div class="tags">
-                                <span>PostgreSQL</span><span>MySQL</span><span>ClickHouse</span><span>Redis</span>
-                            </div>
-                        </div>
-                        <div class="skill-category">
-                            <h4>Monitoring & Observability</h4>
-                            <p class="skill-desc">Centralized Log Pipeline, Prometheus, Grafana, PMM, cAdvisor,
-                                Alertmanager, OpenTelemetry, Filebeat, Vector, SSE</p>
-                        </div>
-                        <div class="skill-category">
-                            <h4>Security & Auth</h4>
-                            <div class="tags">
-                                <span>Authentik/OAuth2</span><span>JWT</span><span>RBAC</span>
-                            </div>
-                        </div>
-                        <div class="skill-category">
-                            <h4>Tools & OS</h4>
-                            <div class="tags">
-                                <span>Git</span><span>Ubuntu</span><span>Makefile</span><span>YAML</span><span>PowerShell</span><span>Cron</span>
-                            </div>
-                        </div>
-                        <div class="skill-category">
-                            <h4>Networking</h4>
-                            <p class="skill-desc">Docker Compose bridge, port mapping, GCP VPC & firewall, VM
-                                networking, Reverse Proxy & SSL</p>
-                        </div>
-                    </div>
-                </section>
-
-                <!-- Education -->
-                <section class="glass-panel fade-in delay-3">
-                    <h3 class="section-title"><i class="fas fa-graduation-cap"></i> Education</h3>
-                    <div class="item">
-                        <div class="item-header">
-                            <h4>Bachelor of Engineering in Computer Engineering</h4>
-                            <span class="date">2023 – Present</span>
-                        </div>
-                        <p class="institution">Prince of Songkla University, Year 3 (Currently studying)</p>
-                        <p class="highlight">GPAX: 3.54</p>
-                    </div>
-                </section>
-
-                <!-- Certification -->
-                <section class="glass-panel fade-in delay-4">
-                    <h3 class="section-title"><i class="fas fa-certificate"></i> Certification (2024)</h3>
-                    <ul class="list">
-                        <li>Alibaba ACA Cloud Computing Certification – Cloud Computing Fundamentals</li>
-                        <li>Huawei Cloud Advanced: Architecture and Technologies</li>
-                        <li>Huawei Cloud Basics: Development and Basic Concepts</li>
-                        <li>Huawei Development and Basic Concepts of Cloud Computing (CARA Training Program)</li>
-                    </ul>
-                </section>
-
-            </div>
-
-            <!-- Right Column -->
-            <div class="column">
+            <!-- ─── LEFT COLUMN ─── -->
+            <div class="left-col">
 
                 <!-- Work Experience -->
-                <section class="glass-panel fade-in delay-2">
-                    <h3 class="section-title"><i class="fas fa-briefcase"></i> Work Experience</h3>
+                <section id="sec-experience" class="section">
 
-                    <div class="item">
-                        <div class="item-header">
-                            <h4>Server Operation Internship</h4>
-                            <span class="date">Apr 2026 – Jun 2026</span>
+                    <div class="exp-item">
+                        <div class="exp-header">
+                            <span class="exp-title">Server Operation Internship</span>
+                            <span class="exp-date">Apr – Jun 2026</span>
                         </div>
-                        <p class="institution">Education and Innovative Learning Academy, Prince of Songkla University
-                        </p>
-                        <ul class="list">
-                            <li>Developed a production-ready Centralized Log Management system for Docker infrastructure
-                                using ClickHouse, Redis, and Filebeat. Optimized log ingestion via batch processing to
-                                support millions of records daily and implemented a custom real-time dashboard using
-                                FastAPI and Vanilla JS for infrastructure monitoring.</li>
-                            <li>Config the existing Server Monitor (Grafana, Prometheus, cAdvisor, PMM) to monitor
-                                Database and Container stat.</li>
+                        <p class="exp-org">Education &amp; Innovative Learning Academy · PSU</p>
+                        <ul class="exp-list">
+                            <li>Built a production-ready Centralized Log Management system for Docker infrastructure
+                                using ClickHouse, Redis &amp; Filebeat; optimized batch ingestion to handle millions of
+                                records daily.</li>
+                            <li>Implemented a custom real-time dashboard (FastAPI + Vanilla JS) for infrastructure
+                                monitoring.</li>
+                            <li>Configured server monitoring stack (Grafana, Prometheus, cAdvisor, PMM) for database
+                                &amp; container stats.</li>
                         </ul>
                     </div>
 
-                    <div class="item">
-                        <div class="item-header">
-                            <h4>Teacher Assistants (TA)</h4>
-                            <span class="date">Jun 2025 – Apr 2026</span>
+                    <div class="exp-item">
+                        <div class="exp-header">
+                            <span class="exp-title">Teacher Assistant (TA)</span>
+                            <span class="exp-date">Jun 2025 – Apr 2026</span>
                         </div>
-                        <p class="institution">Bachelor of Engineering, Prince of Songkla University</p>
-                        <p>Assisted in teaching and supporting undergraduate courses:</p>
-                        <ul class="list">
-                            <li>Fundamental Mathematics for Engineering, Artificial Intelligence Literacy (1/2025)</li>
-                            <li>Basic Engineering Programming (2/2025)</li>
+                        <p class="exp-org">Bachelor of Engineering · Prince of Songkla University</p>
+                        <ul class="exp-list">
+                            <li>Assisted in Fundamental Mathematics for Engineering &amp; AI Literacy (Semester 1/2025).
+                            </li>
+                            <li>Supported Basic Engineering Programming course (Semester 2/2025).</li>
                         </ul>
                     </div>
                 </section>
 
                 <!-- Projects -->
-                <section class="glass-panel fade-in delay-3">
-                    <h3 class="section-title"><i class="fas fa-project-diagram"></i> Projects</h3>
+                <section id="sec-projects" class="section">
 
-                    <div class="item">
-                        <div class="item-header">
-                            <h4>Strapi-Cloud</h4>
+                    <div class="project-item">
+                        <div class="project-header">
+                            <span class="project-title">Strapi-Cloud</span>
                             <a href="https://github.com/thanapon-aungsakul/Strapi-cloud.git" target="_blank"
                                 class="repo-link"><i class="fab fa-github"></i> Repository</a>
                         </div>
-                        <p class="institution">Game Backend Infrastructure on Google Cloud Platform</p>
-                        <ul class="list">
-                            <li>Designed and deployed cloud infrastructure for a Strapi-based backend on Google Cloud
-                                Platform.</li>
-                            <li>Deployed containerized Strapi service on Google Kubernetes Engine (GKE) with external
-                                Load Balancer.</li>
-                            <li>Provisioned and connected PostgreSQL using Cloud SQL with secure networking.</li>
-                            <li>Implemented basic CI/CD pipeline for automated build and deployment.</li>
+                        <p class="project-org">Game Backend Infrastructure · Google Cloud Platform</p>
+                        <ul class="exp-list">
+                            <li>Deployed containerized Strapi on GKE with external Load Balancer.</li>
+                            <li>Provisioned Cloud SQL (PostgreSQL) with secure VPC networking.</li>
+                            <li>Implemented CI/CD pipeline for automated build and deployment.</li>
                         </ul>
                     </div>
 
-                    <div class="item">
-                        <div class="item-header">
-                            <h4>DevOps Learning Project</h4>
+                    <div class="project-item">
+                        <div class="project-header">
+                            <span class="project-title">DevOps Learning Project</span>
                             <a href="https://github.com/thanapon-aungsakul/DevOps_learning_Project.git" target="_blank"
                                 class="repo-link"><i class="fab fa-github"></i> Repository</a>
                         </div>
-                        <ul class="list">
-                            <li>Containerized web services using Docker and Docker Compose.</li>
-                            <li>Configured Nginx reverse proxy and basic load balancing for containerized services.</li>
-                            <li>Practiced container networking and basic monitoring/logging workflows.</li>
+                        <ul class="exp-list">
+                            <li>Containerized web services with Docker &amp; Docker Compose.</li>
+                            <li>Configured Nginx reverse proxy and basic load balancing.</li>
+                            <li>Practiced container networking and monitoring/logging workflows.</li>
                         </ul>
                     </div>
 
-                    <div class="item">
-                        <div class="item-header">
-                            <h4>The Great Commander</h4>
+                    <div class="project-item">
+                        <div class="project-header">
+                            <span class="project-title">The Great Commander</span>
                             <a href="https://github.com/fiat222/The-Great-Commander" target="_blank"
                                 class="repo-link"><i class="fab fa-github"></i> Repository</a>
                         </div>
-                        <p class="institution">Action PvP Tower Defense (Unity3D)</p>
-                        <ul class="list">
-                            <li>Developed an Action PvP Tower Defense game mixing Strategy Economy and Active Combat.
-                            </li>
-                            <li>Implemented Real-time Multiplayer networking using Unity Netcode for GameObjects (NGO).
-                            </li>
-                            <li>Designed game architecture including AI systems, Dynamic Camera, and unit cost
-                                balancing.</li>
-                            <li>Collaborated in a team utilizing AI-Assisted Development tools for optimized workflow.
-                            </li>
+                        <p class="project-org">Action PvP Tower Defense · Unity 3D</p>
+                        <ul class="exp-list">
+                            <li>Developed an Action PvP Tower Defense mixing Strategy Economy and Active Combat.</li>
+                            <li>Implemented real-time multiplayer via Unity Netcode for GameObjects (NGO).</li>
+                            <li>Designed AI systems, Dynamic Camera, unit cost balancing, and game architecture.</li>
                         </ul>
                     </div>
                 </section>
 
-                <!-- Soft Skills & Languages -->
-                <section class="glass-panel fade-in delay-4">
-                    <h3 class="section-title"><i class="fas fa-users"></i> Soft Skills & Languages</h3>
-                    <div class="soft-skills">
-                        <div class="skill-item">
-                            <h4>Leadership & Team Coordination</h4>
-                            <p>Led teams of 3–4 members across multiple university projects, tracking progress and
-                                ensuring alignment toward shared goals.</p>
-                        </div>
-                        <div class="skill-item">
-                            <h4>Agile Project Management & Adaptability</h4>
-                            <p>Adjusted plans based on team progress using Agile practices to keep projects on track and
-                                respond to changes effectively.</p>
-                        </div>
-                        <div class="skill-item">
-                            <h4>Communication & Workflow Design</h4>
-                            <p>Communicated project updates clearly while designing workflows and pipelines to improve
-                                team efficiency.</p>
+            </div>
+
+            <!-- ─── RIGHT COLUMN ─── -->
+            <div class="right-col">
+
+                <!-- Education -->
+                <section id="sec-education" class="section">
+                    <div class="section-label"><i class="fas fa-graduation-cap"></i> Education</div>
+                    <div class="edu-block">
+                        <p class="edu-degree">B.Eng. Computer Engineering</p>
+                        <p class="edu-school">Prince of Songkla University · Year 3</p>
+                        <div class="edu-gpa">3.54 <span>GPAX</span></div>
+                        <p class="edu-date">2023 – Present (Currently studying)</p>
+                    </div>
+                </section>
+
+                <!-- Technical Skills -->
+                <section id="sec-skills" class="section">
+                    <div class="section-label"><i class="fas fa-layer-group"></i> Technical Skills</div>
+
+                    <div class="skill-block">
+                        <p class="skill-block-title">Languages</p>
+                        <div class="tags">
+                            <span class="tag tag-default">Python</span>
+                            <span class="tag tag-default">JavaScript</span>
+                            <span class="tag tag-default">Node.js</span>
+                            <span class="tag tag-default">SQL</span>
+                            <span class="tag tag-default">Bash</span>
+                            <span class="tag tag-default">C#</span>
                         </div>
                     </div>
-                    <div class="mt-4">
-                        <h4>Languages</h4>
+
+                    <div class="skill-block">
+                        <p class="skill-block-title">DevOps &amp; Infrastructure</p>
                         <div class="tags">
-                            <span><strong>Thai:</strong> Native</span>
-                            <span><strong>English:</strong> Intermediate</span>
+                            <span class="tag tag-accent">Docker</span>
+                            <span class="tag tag-accent">Nginx</span>
+                            <span class="tag tag-accent">GKE</span>
+                            <span class="tag tag-accent">Traefik</span>
+                            <span class="tag tag-accent">Docker Compose</span>
+                        </div>
+                    </div>
+
+                    <div class="skill-block">
+                        <p class="skill-block-title">Cloud Platform</p>
+                        <p class="skill-desc-text">GCP (GKE, Cloud SQL, Artifact Registry, Load Balancer, VPC, Secret
+                            Manager, Pub/Sub, Cloud Build) · AWS (EC2, S3 — basic)</p>
+                    </div>
+
+                    <div class="skill-block">
+                        <p class="skill-block-title">Databases</p>
+                        <div class="tags">
+                            <span class="tag tag-blue">PostgreSQL</span>
+                            <span class="tag tag-blue">MySQL</span>
+                            <span class="tag tag-blue">ClickHouse</span>
+                            <span class="tag tag-blue">Redis</span>
+                        </div>
+                    </div>
+
+                    <div class="skill-block">
+                        <p class="skill-block-title">Monitoring &amp; Observability</p>
+                        <p class="skill-desc-text">Prometheus · Grafana · PMM · cAdvisor · Alertmanager · OpenTelemetry
+                            · Filebeat · Vector · SSE</p>
+                    </div>
+
+                    <div class="skill-block">
+                        <p class="skill-block-title">Security &amp; Auth</p>
+                        <div class="tags">
+                            <span class="tag tag-default">Authentik/OAuth2</span>
+                            <span class="tag tag-default">JWT</span>
+                            <span class="tag tag-default">RBAC</span>
+                        </div>
+                    </div>
+
+                    <div class="skill-block">
+                        <p class="skill-block-title">Tools &amp; OS</p>
+                        <div class="tags">
+                            <span class="tag tag-default">Git</span>
+                            <span class="tag tag-default">Ubuntu</span>
+                            <span class="tag tag-default">Makefile</span>
+                            <span class="tag tag-default">YAML</span>
+                            <span class="tag tag-default">PowerShell</span>
+                            <span class="tag tag-default">Cron</span>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Certifications -->
+                <section id="sec-certifications" class="section">
+                    <div class="section-label"><i class="fas fa-certificate"></i> Certifications</div>
+                    <div class="cert-item">
+                        <div class="cert-icon"><i class="fas fa-cloud"></i></div>
+                        <p class="cert-text">Alibaba ACA Cloud Computing Certification – Fundamentals <span
+                                class="highlight-pill">2024</span></p>
+                    </div>
+                    <div class="cert-item">
+                        <div class="cert-icon"><i class="fas fa-server"></i></div>
+                        <p class="cert-text">Huawei Cloud Advanced: Architecture &amp; Technologies <span
+                                class="highlight-pill">2024</span></p>
+                    </div>
+                    <div class="cert-item">
+                        <div class="cert-icon"><i class="fas fa-server"></i></div>
+                        <p class="cert-text">Huawei Cloud Basics: Development &amp; Basic Concepts <span
+                                class="highlight-pill">2024</span></p>
+                    </div>
+                    <div class="cert-item">
+                        <div class="cert-icon"><i class="fas fa-award"></i></div>
+                        <p class="cert-text">Huawei Development &amp; Basic Concepts of Cloud Computing (CARA Program)
+                            <span class="highlight-pill">2024</span></p>
+                    </div>
+                </section>
+
+                <!-- Languages -->
+                <section class="section">
+                    <div class="section-label"><i class="fas fa-globe"></i> Languages</div>
+                    <div class="lang-row">
+                        <span class="lang-name">Thai</span>
+                        <div class="lang-bar">
+                            <div class="lang-dot filled"></div>
+                            <div class="lang-dot filled"></div>
+                            <div class="lang-dot filled"></div>
+                            <div class="lang-dot filled"></div>
+                            <div class="lang-dot filled"></div>
+                        </div>
+                    </div>
+                    <div class="lang-row">
+                        <span class="lang-name">English</span>
+                        <div class="lang-bar">
+                            <div class="lang-dot filled"></div>
+                            <div class="lang-dot filled"></div>
+                            <div class="lang-dot filled"></div>
+                            <div class="lang-dot"></div>
+                            <div class="lang-dot"></div>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Soft Skills -->
+                <section id="sec-soft" class="section">
+                    <div class="section-label"><i class="fas fa-users"></i> Soft Skills</div>
+                    <div class="soft-item">
+                        <span class="soft-num">01</span>
+                        <div>
+                            <p class="soft-title">Leadership &amp; Team Coordination</p>
+                            <p class="soft-desc">Led teams of 3–4 members across university projects, tracking progress
+                                and aligning goals.</p>
+                        </div>
+                    </div>
+                    <div class="soft-item">
+                        <span class="soft-num">02</span>
+                        <div>
+                            <p class="soft-title">Agile Project Management</p>
+                            <p class="soft-desc">Adjusted plans with Agile practices to keep projects on track and
+                                respond to change.</p>
+                        </div>
+                    </div>
+                    <div class="soft-item">
+                        <span class="soft-num">03</span>
+                        <div>
+                            <p class="soft-title">Communication &amp; Workflow Design</p>
+                            <p class="soft-desc">Communicated project updates clearly while designing pipelines that
+                                improved team efficiency.</p>
                         </div>
                     </div>
                 </section>
@@ -251,106 +1067,152 @@
             </div>
         </div>
 
-        <!-- Game Technical Skills (full width) -->
-        <section class="glass-panel fade-in delay-2">
-            <h3 class="section-title"><i class="fas fa-gamepad"></i> Game Technical Skills</h3>
-            <p class="section-subtitle">Game Engine: <strong>Unity Engine (Universal Render Pipeline &ndash;
-                    URP)</strong></p>
-            <div class="skills-grid game-skills-grid">
-                <div class="skill-category">
-                    <h4>Engine &amp; Programming</h4>
-                    <div class="tags">
-                        <span>Unity (URP)</span><span>C# /
-                            OOP</span><span>Singleton</span><span>Observer</span><span>Event-driven</span>
+        <!-- ═══ FULL WIDTH: GAME TECHNICAL SKILLS ═══ -->
+        <div class="full-width-section">
+            <section id="sec-game" class="section" style="margin-bottom:2rem;">
+                <div class="section-label"><i class="fas fa-gamepad"></i> Game Technical Skills</div>
+                <p class="section-subtitle">Engine: <strong>Unity Engine (Universal Render Pipeline — URP)</strong></p>
+                <div class="skills-masonry">
+                    <div class="skill-card">
+                        <p class="skill-card-title">Engine &amp; Programming</p>
+                        <div class="tags">
+                            <span class="tag tag-default">Unity (URP)</span>
+                            <span class="tag tag-default">C# / OOP</span>
+                            <span class="tag tag-default">Singleton</span>
+                            <span class="tag tag-default">Observer</span>
+                            <span class="tag tag-default">Event-driven</span>
+                        </div>
+                    </div>
+                    <div class="skill-card">
+                        <p class="skill-card-title">Multiplayer &amp; Networking</p>
+                        <div class="tags">
+                            <span class="tag tag-accent">NGO</span>
+                            <span class="tag tag-accent">Server/Client Arch.</span>
+                            <span class="tag tag-accent">RPCs</span>
+                            <span class="tag tag-accent">NetworkVariables</span>
+                            <span class="tag tag-accent">Latency Mgmt.</span>
+                        </div>
+                    </div>
+                    <div class="skill-card">
+                        <p class="skill-card-title">AI &amp; Navigation</p>
+                        <div class="tags">
+                            <span class="tag tag-default">Unity NavMesh</span>
+                            <span class="tag tag-default">FSM</span>
+                            <span class="tag tag-default">Combat AI</span>
+                            <span class="tag tag-default">Strafe Systems</span>
+                            <span class="tag tag-default">Projectile Systems</span>
+                        </div>
+                    </div>
+                    <div class="skill-card">
+                        <p class="skill-card-title">Animation System</p>
+                        <div class="tags">
+                            <span class="tag tag-blue">Animator Controllers</span>
+                            <span class="tag tag-blue">Animator Mask</span>
+                            <span class="tag tag-blue">State Machines</span>
+                            <span class="tag tag-blue">Animation Events</span>
+                            <span class="tag tag-blue">Keyframe Editing</span>
+                        </div>
+                    </div>
+                    <div class="skill-card">
+                        <p class="skill-card-title">Camera &amp; Input</p>
+                        <div class="tags">
+                            <span class="tag tag-default">Cinemachine</span>
+                            <span class="tag tag-default">Dynamic Follow</span>
+                            <span class="tag tag-default">Target Lock</span>
+                            <span class="tag tag-default">New Input System</span>
+                        </div>
+                    </div>
+                    <div class="skill-card">
+                        <p class="skill-card-title">UI/UX &amp; Tools</p>
+                        <div class="tags">
+                            <span class="tag tag-default">TextMesh Pro</span>
+                            <span class="tag tag-default">uGUI</span>
+                            <span class="tag tag-default">Dynamic Health Bars</span>
+                            <span class="tag tag-default">Blender (Rigging)</span>
+                            <span class="tag tag-default">VFX Particle Systems</span>
+                            <span class="tag tag-default">Audio Management</span>
+                        </div>
                     </div>
                 </div>
-                <div class="skill-category">
-                    <h4>Multiplayer &amp; Networking</h4>
-                    <div class="tags">
-                        <span>Netcode for GameObjects (NGO)</span><span>Server/Client
-                            Arch.</span><span>RPCs</span><span>NetworkVariables</span><span>Latency Mgmt.</span>
-                    </div>
-                </div>
-                <div class="skill-category">
-                    <h4>AI &amp; Navigation</h4>
-                    <div class="tags">
-                        <span>Unity NavMesh</span><span>Finite State Machines</span><span>Combat AI</span><span>Strafe
-                            Systems</span><span>Projectile Systems</span>
-                    </div>
-                </div>
-                <div class="skill-category">
-                    <h4>Animation System</h4>
-                    <div class="tags">
-                        <span>Animator Controllers</span><span>Animator Mask</span><span>State
-                            Machines</span><span>Animation Retargeting</span><span>Animation Events</span><span>Keyframe
-                            Editing</span>
-                    </div>
-                </div>
-                <div class="skill-category">
-                    <h4>Camera &amp; Input</h4>
-                    <div class="tags">
-                        <span>Cinemachine (Dynamic Follow)</span><span>Target Lock</span><span>New Input System</span>
-                    </div>
-                </div>
-                <div class="skill-category">
-                    <h4>UI/UX &amp; Tools</h4>
-                    <div class="tags">
-                        <span>TextMesh Pro</span><span>uGUI</span><span>Dynamic Health Bars</span><span>Shop &amp;
-                            Inventory UI</span><span>Blender (Rigging)</span><span>VFX Particle
-                            Systems</span><span>Audio Management</span>
-                    </div>
-                </div>
-            </div>
-        </section>
+            </section>
 
-        <!-- Game Architecture & Systems Design (full width) -->
-        <section class="glass-panel fade-in delay-3">
-            <h3 class="section-title"><i class="fas fa-chess"></i> Game Architecture &amp; Systems Design</h3>
-            <p class="section-subtitle">Applied in <strong>The Great Commander</strong> (Action PvP Tower Defense
-                &middot; Unity3D)</p>
-            <div class="arch-grid arch-grid-wide">
-                <div class="arch-item">
-                    <div>
+            <!-- ═══ GAME ARCHITECTURE ═══ -->
+            <section class="section">
+                <div class="section-label"><i class="fas fa-chess"></i> Game Architecture &amp; Systems Design</div>
+                <p class="section-subtitle">Applied in <strong>The Great Commander</strong> — Action PvP Tower Defense ·
+                    Unity 3D</p>
+                <div class="arch-grid">
+                    <div class="arch-card">
                         <h4>Multiplayer Architecture</h4>
-                        <p>Designed the <em>&ldquo;Split Battlefield&rdquo;</em> system to reduce Network Latency in PvP
-                            1v1, leveraging Server/Client separation and optimized RPC calls.</p>
+                        <p>Designed the <em>"Split Battlefield"</em> system to reduce network latency in PvP 1v1 via
+                            Server/Client separation and optimized RPC calls.</p>
                     </div>
-                </div>
-                <div class="arch-item">
-                    <div>
+                    <div class="arch-card">
                         <h4>Game Economy Balance</h4>
-                        <p>Developed a Cost-based Stat Balance formula to maintain fair unit strength proportional to
+                        <p>Developed a cost-based stat balance formula to maintain fair unit strength proportional to
                             cost across Minion &amp; Enemy variants.</p>
                     </div>
-                </div>
-                <div class="arch-item">
-                    <div>
+                    <div class="arch-card">
                         <h4>Dynamic Difficulty Scaling</h4>
                         <p>Built a Wave Escalation system that auto-scales HP, Attack, and Speed based on elapsed
                             playtime for progressive challenge.</p>
                     </div>
-                </div>
-                <div class="arch-item">
-                    <div>
-                        <h4>Resource &amp; Lifecycle Management</h4>
-                        <p>Implemented VFX Manager (Singleton) with Auto-destruction for Object Lifecycle control,
+                    <div class="arch-card">
+                        <h4>Resource &amp; Lifecycle Mgmt.</h4>
+                        <p>Implemented VFX Manager (Singleton) with auto-destruction for object lifecycle control,
                             optimizing runtime performance.</p>
                     </div>
-                </div>
-                <div class="arch-item">
-                    <div>
+                    <div class="arch-card">
                         <h4>Strategic Gameplay Design</h4>
-                        <p>Designed a Hybrid gameplay loop alternating between a Planning phase (strategy/economy) and
-                            Real-time Action combat.</p>
+                        <p>Designed a hybrid gameplay loop alternating between a Planning phase (strategy/economy) and
+                            real-time Action combat.</p>
                     </div>
                 </div>
-            </div>
-        </section>
+            </section>
+        </div>
 
         <footer>
-            <p>Designed by Thanapon (Using Antigravity)</p>
+            Thanapon Aungsakul &mdash; Designed with intention
         </footer>
+
     </div>
+    <script>
+        // Smooth scroll with offset for sticky nav
+        document.querySelectorAll('.sticky-nav a[href^="#"]').forEach(link => {
+            link.addEventListener('click', e => {
+                e.preventDefault();
+                const target = document.querySelector(link.getAttribute('href'));
+                if (!target) return;
+                const navH = document.querySelector('.sticky-nav').offsetHeight;
+                const top = target.getBoundingClientRect().top + window.scrollY - navH - 16;
+                window.scrollTo({ top, behavior: 'smooth' });
+            });
+        });
+
+        // Highlight active nav item on scroll
+        const sections = ['sec-profile', 'sec-experience', 'sec-projects', 'sec-skills', 'sec-education', 'sec-certifications', 'sec-soft', 'sec-game'];
+        const navLinks = {};
+        sections.forEach(id => {
+            const el = document.querySelector(`a[href="#${id}"]`);
+            if (el) navLinks[id] = el;
+        });
+
+        const navH = () => document.querySelector('.sticky-nav').offsetHeight + 24;
+
+        function updateActive() {
+            let current = sections[0];
+            sections.forEach(id => {
+                const sec = document.getElementById(id);
+                if (sec && sec.getBoundingClientRect().top <= navH()) current = id;
+            });
+            Object.entries(navLinks).forEach(([id, link]) => {
+                link.classList.toggle('active', id === current);
+            });
+        }
+
+        window.addEventListener('scroll', updateActive, { passive: true });
+        updateActive();
+    </script>
 </body>
 
 </html>
