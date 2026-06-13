@@ -412,13 +412,11 @@
                     </div>
                     <p class="entry-org">Education &amp; Innovative Learning Academy · PSU</p>
                     <ul>
-                        <li>Built a production-ready centralized log management system for Docker infrastructure using
-                            ClickHouse, Redis &amp; Filebeat; optimized batch ingestion to handle millions of records
-                            daily.</li>
-                        <li>Implemented a custom real-time dashboard (FastAPI + vanilla JS) for infrastructure
-                            monitoring.</li>
-                        <li>Configured a server monitoring stack (Grafana, Prometheus, cAdvisor, PMM) for database and
-                            container stats.</li>
+                        <li>Developed a production-ready centralized log management system (ClickHouse, Redis, Filebeat) with batch ingestion supporting millions of records daily; built a real-time dashboard (FastAPI + vanilla JS) and reduced ClickHouse storage by ~74% through system-log optimization.</li>
+                        <li>Deployed BunkerWeb WAF as a Docker Swarm service with real-IP detection, CrowdSec integration, sub-path reverse proxy routing, and custom error pages across two environments.</li>
+                        <li>Managed Docker Swarm production workloads: ProxySQL, Nginx FastCGI caching, Go-based webhook autoscaler triggered by Prometheus/Grafana alerts; migrated Portainer to standalone Compose with Edge Agents and iptables firewall rules.</li>
+                        <li>Configured monitoring stack (Grafana, Prometheus, cAdvisor, PMM) with custom dashboards combining Prometheus metrics and MySQL performance_schema queries.</li>
+                        <li>Deployed JumpServer PAM with account discovery and web terminal; resolved jsreport OOM crashes by introducing RabbitMQ as a job-queue buffer; automated backups with Bash + cron.</li>
                     </ul>
                 </div>
                 <div class="entry">
@@ -485,11 +483,11 @@
             <dl>
                 <div class="skill-row">
                     <dt>Languages</dt>
-                    <dd>Python · JavaScript · Node.js · SQL · Bash · C#</dd>
+                    <dd>Python · JavaScript · SQL · Shell Scripting (Bash)</dd>
                 </div>
                 <div class="skill-row">
                     <dt>DevOps &amp; Infra</dt>
-                    <dd>Docker · Docker Compose · Nginx · Traefik · GKE</dd>
+                    <dd>Docker · Docker Swarm · Nginx · Kubernetes (GKE) · Traefik · Advanced Docker Compose (Volume/Networking) · Vector</dd>
                 </div>
                 <div class="skill-row">
                     <dt>Cloud</dt>
@@ -498,20 +496,23 @@
                 </div>
                 <div class="skill-row">
                     <dt>Databases</dt>
-                    <dd>PostgreSQL · MySQL · ClickHouse · Redis</dd>
+                    <dd>PostgreSQL · MySQL · ClickHouse (OLAP/Log Store) · Redis (Caching &amp; Message Buffer)</dd>
                 </div>
                 <div class="skill-row">
-                    <dt>Monitoring</dt>
-                    <dd>Prometheus · Grafana · PMM · cAdvisor · Alertmanager · OpenTelemetry · Filebeat · Vector · SSE
-                    </dd>
+                    <dt>Monitoring &amp; Observability</dt>
+                    <dd>Centralized Log Pipeline Design · Prometheus · Grafana · PMM · cAdvisor · Alertmanager · OpenTelemetry (OTel/OTLP) · Filebeat · Vector · Real-time Log Streaming (SSE)</dd>
                 </div>
                 <div class="skill-row">
                     <dt>Security &amp; Auth</dt>
-                    <dd>Authentik / OAuth2 · JWT · RBAC</dd>
+                    <dd>SSO Integration (Authentik/OAuth2) · JWT · RBAC · BunkerWeb WAF · CrowdSec · JumpServer PAM</dd>
                 </div>
                 <div class="skill-row">
                     <dt>Tools &amp; OS</dt>
-                    <dd>Git · Ubuntu · Makefile · YAML · PowerShell · Cron</dd>
+                    <dd>Git · Linux (Ubuntu) · Makefile · YAML · PowerShell (Deployment Automation) · Cron &amp; Backup Automation (pg_dump, ClickHouse Backup)</dd>
+                </div>
+                <div class="skill-row">
+                    <dt>Networking</dt>
+                    <dd>Docker Compose bridge networking · port mapping · GCP VPC &amp; firewall rules · VM networking · Reverse Proxy &amp; SSL Termination</dd>
                 </div>
             </dl>
         </section>
